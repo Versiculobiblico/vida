@@ -2,77 +2,1604 @@
 <!--Created By Morron Corp-->
 <!--Admin By Kraken Studios-->
 <!--a1-005-->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página en Configuración</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Meditación Bíblica</title>
+
+        <!--Estilos de contenedor y texto-->
     <style>
         body {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            text-align: justify;
+            background-size: cover;
+            background-position: center;
+            transition: background 1s ease-in-out;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
-            text-align: center;
+            margin: 0;
         }
-        .icons {
-            font-size: 50px;
-            margin-bottom: 20px;
-        }
-        .fa-cog {
-            animation: spin 2s linear infinite;
-        }
-        .fa-key {
-            animation: move 1.5s ease-in-out infinite alternate;
-        }
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        @keyframes move {
-            from {
-                transform: translateX(-10px);
-            }
-            to {
-                transform: translateX(10px);
-            }
-        }
-        .message {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .footer {
-            font-size: 18px;
+
+ .contenedor {
+    background: rgba(255, 255, 255, 0.32); 
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+        #versiculo {
+            font-size: 17px;
             font-weight: bold;
-            color: #555;
+            font-size: 20px;
+            font-weight: 900;
         }
-    </style>
-</head>
-<body>
-
-    <div class="icons">
-        <i class="fa-solid fa-cog"></i>
-        <i class="fa-solid fa-key"></i>
-    </div>
-    
-    <div class="message">
-        Página en configuración... Estamos trabajando en ello... ¡Sé paciente!
+            </style>
+        </head>
+    <body>
+     <!--Contenedor-->
+    <div class="contenedor">
+        <div id="versiculo"></div>
     </div>
 
-    <div class="footer">
-        By MorroN Corp
-    </div>
+<!--Listado ver Versiculos Cambiantes (1 diferente cada ves que se actualice la pagina)-->
+    <script>
+ const versiculos = [
+    {
+        texto: "El Señor te bendiga y te guarde; el Señor te mire con agrado y te extienda su amor; el Señor te muestre su favor y te conceda la paz.",
+        referencia: "Números 6:24-26"
+    },
+    {
+        texto: "Bendito el hombre que confía en el Señor y pone su confianza en él. Será como un árbol plantado junto al agua, que extiende sus raíces hacia la corriente; no teme que llegue el calor, y sus hojas están siempre verdes. En época de sequía no se angustia, y nunca deja de dar fruto.",
+        referencia: "Jeremías 17:7-8"
+    },
+    {
+        texto: "¿Pues quién es Dios, si no el Señor? ¿Quién es la roca, si no nuestro Dios?",
+        referencia: "Proverbios 18:10"
+    },
+    {
+        texto: "Porque yo sé muy bien los planes que tengo para ustedes —afirma el Señor—, planes de bienestar y no de calamidad, a fin de darles un futuro y una esperanza.",
+        referencia: "Jeremías 29:11"
+    },
+    {
+        texto: "Así que mi Dios les proveerá de todo lo que necesiten, conforme a las gloriosas riquezas que tiene en Cristo Jesús.",
+        referencia: "Filipenses 4:19"
+    },
+    {
+        texto: "Adora al Señor tu Dios, y él bendecirá tu pan y tu agua. Yo apartaré de ustedes toda enfermedad.",
+        referencia: "Éxodo 23:25"
+    },
+    {
+        texto: "Prueben y vean que el Señor es bueno; dichosos los que en él se refugian.",
+        referencia: "Salmo 34:8"
+    },
+    {
+        texto: "Hoy te ordeno que ames al Señor tu Dios, que andes en sus caminos, y que cumplas sus mandamientos, preceptos y leyes. Así vivirás y te multiplicarás, y el Señor tu Dios te bendecirá en la tierra de la que vas a tomar posesión.",
+        referencia: "Deuteronomio 30:16"
+    },
+    {
+        texto: "El Señor es mi pastor, nada me falta; en verdes pastos me hace descansar. Junto a tranquilas aguas me conduce.",
+        referencia: "Salmo 23:1-2"
+    },
+    {
+        texto: "El que atiende a la palabra prospera. ¡Dichoso el que confía en el Señor!",
+        referencia: "Proverbios 16:20"
+    },
+    {
+        texto: "Bendigan a quienes los persigan; bendigan y no maldigan.",
+        referencia: "Romanos 12:14"
+    },
+    {
+        texto: "Y Dios puede hacer que toda gracia abunde para ustedes, de manera que siempre, en toda circunstancia, tengan todo lo necesario, y toda buena obra abunde en ustedes.",
+        referencia: "2 Corintios 9:8"
+    },
+    {
+        texto: "Cuán grande es tu bondad, que atesoras para los que te temen, y que a la vista de la gente derramas sobre los que en ti se refugian.",
+        referencia: "Salmo 31:19"
+    },
+    {
+        texto: "Que la gracia del Señor Jesucristo sea con su espíritu.",
+        referencia: "Filemón 1:25"
+    },
+    {
+        texto: "Querido hermano, oro para que te vaya bien en todos tus asuntos y goces de buena salud, así como prosperas espiritualmente.",
+        referencia: "3 Juan 1:2"
+    },
+    {
+        texto: "Pero a ustedes que me escuchan les digo: Amen a sus enemigos, hagan bien a quienes los odian, bendigan a quienes los maldicen, oren por quienes los maltratan.",
+        referencia: "Lucas 6:27-28"
+    },
+    {
+        texto: "La bendición del Señor trae riquezas, y nada se gana con preocuparse.",
+        referencia: "Proverbios 10:22"
+    },
+    {
+        texto: "No devuelvan mal por mal ni insulto por insulto; más bien, bendigan, porque para esto fueron llamados, para heredar una bendición.",
+        referencia: "1 Pedro 3:9"
+    },
+    {
+        texto: "En cambio, el fruto del Espíritu es amor, alegría, paz, paciencia, amabilidad, bondad, fidelidad, humildad y dominio propio. No hay ley que condene estas cosas.",
+        referencia: "Gálatas 5:22-23"
+    },
+    {
+        texto: "Si realmente escuchas al Señor tu Dios, y cumples fielmente todos estos mandamientos que hoy te ordeno, el Señor tu Dios te pondrá por encima de todas las naciones de la tierra.",
+        referencia: "Deuteronomio 28:1"
+    },
+    {
+        texto: "Que la gracia del Señor Jesucristo sea con su espíritu. Amén.",
+        referencia: "Filipenses 4:23"
+    },
+    {
+        texto: "Dichosos los que tienen hambre y sed de justicia, porque serán saciados.",
+        referencia: "Mateo 5:6"
+    },
+    {
+        texto: "Dichosos los que guardan sus estatutos y de todo corazón lo buscan.",
+        referencia: "Salmo 119:2"
+    },
+    {
+        texto: "Que reciban misericordia, paz y amor en abundancia.",
+        referencia: "Judas 1:2"
+    },
+    {
+        texto: "Su señor le respondió: “¡Hiciste bien, siervo bueno y fiel! En lo poco has sido fiel; te pondré a cargo de mucho más. ¡Ven a compartir la felicidad de tu señor!”",
+        referencia: "Mateo 25:21"
+    },
+    {
+        texto: "Dichosos los que trabajan por la paz, porque serán llamados hijos de Dios.",
+        referencia: "Mateo 5:9"
+    },
+    {
+        texto: "Traigan íntegro el diezmo para los fondos del templo, y así habrá alimento en mi casa. Pruébenme en esto —dice el Señor Todopoderoso—, y vean si no abro las compuertas del cielo y derramo sobre ustedes bendición hasta que sobreabunde.",
+        referencia: "Malaquías 3:10"
+    },
+    {
+        texto: "El que es bueno, de la bondad que atesora en el corazón produce el bien; pero el que es malo, de su maldad produce el mal, porque de lo que abunda en el corazón habla la boca.",
+        referencia: "Lucas 6:45"
+    },
+    {
+        texto: "El Señor omnipotente es mi fuerza; da a mis pies la ligereza de una gacela y me hace caminar por las alturas.",
+        referencia: "Habacuc 3:19"
+    },
+     {
+        texto: "Dichoso el hombre que no sigue el consejo de los malvados, ni se detiene en la senda de los pecadores ni cultiva la amistad de los blasfemos.",
+        referencia: "Salmo 1:1"
+    },
+    {
+        texto: "El Señor tu Dios te bendecirá, como lo ha prometido, y tú podrás darles prestado a muchas naciones, pero no tendrás que pedir prestado de ninguna. Dominarás a muchas naciones, pero ninguna te dominará a ti.",
+        referencia: "Deuteronomio 15:6"
+    },
+    {
+        texto: "Que la gracia del Señor Jesucristo, el amor de Dios y la comunión del Espíritu Santo sean con todos ustedes.",
+        referencia: "2 Corintios 13:14"
+    },
+    {
+        texto: "Haré que ellas y los alrededores de mi colina sean una fuente de bendición. Haré caer lluvias de bendición en el tiempo oportuno.",
+        referencia: "Ezequiel 34:26"
+    },
+    {
+        texto: "Ustedes serán enriquecidos en todo sentido para que en toda ocasión puedan ser generosos, y para que por medio de nosotros la generosidad de ustedes resulte en acciones de gracias a Dios.",
+        referencia: "2 Corintios 9:11"
+    },
+    {
+        texto: "Dios nos bendecirá, y le temerán todos los confines de la tierra.",
+        referencia: "Salmo 67:7"
+    },
+    {
+        texto: "No seas sabio en tu propia opinión; más bien, teme al Señor y huye del mal. Esto infundirá salud a tu cuerpo y fortalecerá tu ser.",
+        referencia: "Proverbios 3:7-8"
+    },
+    {
+        texto: "El Señor fortalece a su pueblo; el Señor bendice a su pueblo con la paz.",
+        referencia: "Salmo 29:11"
+    },
+    {
+        texto: "Dichosos los de corazón limpio, porque ellos verán a Dios.",
+        referencia: "Mateo 5:8"
+    },
+    {
+        texto: "El Dios que da la paz levantó de entre los muertos al gran Pastor de las ovejas, a nuestro Señor Jesús, por la sangre del pacto eterno. Que él los capacite en todo lo bueno para hacer su voluntad. Y que, por medio de Jesucristo, Dios cumpla en nosotros lo que le agrada. A él sea la gloria por los siglos de los siglos. Amén.",
+        referencia: "Hebreos 13:20-21"
+    },
+    {
+        texto: "Quien halla esposa halla la felicidad: muestras de su favor le ha dado el Señor.",
+        referencia: "Proverbios 18:22"
+    },
+    {
+        texto: "Bendeciré al Señor en todo tiempo; mis labios siempre lo alabarán.",
+        referencia: "Salmo 34:1"
+    },
+    {
+        texto: "Recita siempre el libro de la ley y medita en él de día y de noche; cumple con cuidado todo lo que en él está escrito. Así prosperarás y tendrás éxito.",
+        referencia: "Josué 1:8"
+    },
+    {
+        texto: "Porque el Señor se complace en su pueblo; a los humildes concede el honor de la victoria.",
+        referencia: "Salmo 149:4"
+    },
+    {
+        texto: "Que Dios nuestro Padre y el Señor Jesucristo les concedan gracia y paz.",
+        referencia: "Romanos 1:7b"
+    },
+    {
+        texto: "Porque me has visto, has creído —le dijo Jesús—; dichosos los que no han visto y sin embargo creen.",
+        referencia: "Juan 20:29"
+    },
+    {
+        texto: "Alabado sea Dios, Padre de nuestro Señor Jesucristo, que nos ha bendecido en las regiones celestiales con toda bendición espiritual en Cristo.",
+        referencia: "Efesios 1:3"
+    },
+    {
+        texto: "Que la gracia del Señor Jesús sea con todos. Amén.",
+        referencia: "Apocalipsis 22:21"
+    },
+    {
+        texto: "El justo se ve coronado de bendiciones, pero la boca del malvado encubre violencia.",
+        referencia: "Proverbios 10:6"
+    },
+    {
+        texto: "Cumple los mandatos del Señor tu Dios; sigue sus sendas y obedece sus decretos, mandamientos, leyes y preceptos, los cuales están escritos en la ley de Moisés. Así prosperarás en todo lo que hagas y por dondequiera que vayas.",
+        referencia: "1 Reyes 2:3"
+    },
+    {
+        texto: "Dichosos los que lloran, porque serán consolados.",
+        referencia: "Mateo 5:4"
+    },
+    {
+        texto: "Y ahora, Israel, ¿qué te pide el Señor tu Dios? Simplemente que le temas y andes en todos sus caminos, que lo ames y le sirvas con todo tu corazón y con toda tu alma, y que cumplas los mandamientos y los preceptos que hoy te manda cumplir, para que te vaya bien.",
+        referencia: "Deuteronomio 10:12-13"
+    },
+    {
+        texto: "Dichosa la nación cuyo Dios es el Señor, el pueblo que escogió por su heredad.",
+        referencia: "Salmo 33:12"
+    },
+     {
+        texto: "Porque tú, Señor, bendices a los justos; cual escudo los rodeas con tu buena voluntad.",
+        referencia: "Salmo 5:12"
+    },
+    {
+        texto: "En la lengua hay poder de vida y muerte; quienes la aman comerán de su fruto.",
+        referencia: "Proverbios 18:21"
+    },
+    {
+        texto: "Pero quien se fija atentamente en la ley perfecta que da libertad, y persevera en ella, no olvidando lo que ha oído, sino haciéndolo, recibirá bendición al practicarla.",
+        referencia: "Santiago 1:25"
+    },
+    {
+        texto: "Honra a tu padre y a tu madre, para que disfrutes de una larga vida en la tierra que te da el Señor tu Dios.",
+        referencia: "Éxodo 20:12"
+    },
+    {
+        texto: "Que irradie tu faz sobre tu siervo; por tu gran amor, sálvame.",
+        referencia: "Salmo 31:16"
+    },
+    {
+        texto: "Él reserva su ayuda para la gente íntegra y protege a los de conducta intachable.",
+        referencia: "Proverbios 2:7"
+    },
+    {
+        texto: "Dichoso aquel a quien se le perdonan sus transgresiones, a quien se le borran sus pecados.",
+        referencia: "Salmo 32:1"
+    },
+    {
+        texto: "La memoria de los justos es una bendición, pero la fama de los malvados será pasto de los gusanos.",
+        referencia: "Proverbios 10:7"
+    },
+    {
+        texto: "Señor, ¡danos la salvación! Señor, ¡concédenos la victoria! Bendito el que viene en el nombre del Señor. Desde la casa del Señor los bendecimos.",
+        referencia: "Salmo 118:25-26"
+    },
+    {
+        texto: "Escucha, hijo mío, acoge mis palabras, y los años de tu vida aumentarán.",
+        referencia: "Proverbios 4:10"
+    },
+    {
+        texto: "De una misma boca salen bendición y maldición. Hermanos míos, esto no debe ser así.",
+        referencia: "Santiago 3:10"
+    },
+    {
+        texto: "Me pregunto: «¿Qué es el hombre, para que en él pienses? ¿Qué es el ser humano, para que lo tomes en cuenta?»",
+        referencia: "Salmo 8:4"
+    },
+        {
+        texto: "Después los llevó Jesús hasta Betania; allí alzó las manos y los bendijo. Sucedió que, mientras los bendecía, se alejó de ellos y fue llevado al cielo.",
+        referencia: "Lucas 24:50-51"
+    },
+    {
+        texto: "Después de haber orado Job por sus amigos, el Señor lo hizo prosperar de nuevo y le dio dos veces más de lo que antes tenía.",
+        referencia: "Job 42:10"
+    },
+    {
+        texto: "Si no me hacen caso ni se deciden a honrar mi nombre —dice el Señor Todopoderoso—, les enviaré una maldición, y maldeciré sus bendiciones. Ya las he maldecido, porque ustedes no se han decidido a honrarme.",
+        referencia: "Malaquías 2:2"
+    },
+    {
+        texto: "Y, por haberse mostrado temerosas de Dios, les concedió tener muchos hijos.",
+        referencia: "Éxodo 1:21"
+    },
+    {
+        texto: "Si se conducen según mis estatutos, y obedecen fielmente mis mandamientos, yo les enviaré lluvia a su tiempo, y la tierra y los árboles del campo darán sus frutos.",
+        referencia: "Levítico 26:3-4"
+    },
+    {
+        texto: "Dichosos ustedes cuando los odien, cuando los discriminen, los insulten y los desprestigien por causa del Hijo del hombre.",
+        referencia: "Lucas 6:22"
+    },
+    {
+        texto: "Multiplicaré a tus descendientes como las estrellas del cielo, y les daré todas esas tierras. Por medio de tu descendencia todas las naciones de la tierra serán bendecidas, porque Abraham me obedeció y cumplió mis preceptos y mis mandamientos, mis normas y mis enseñanzas.",
+        referencia: "Génesis 26:4-5"
+    },
+    {
+        texto: "¡Cuán dichoso es el hombre a quien Dios corrige! No menosprecies la disciplina del Todopoderoso.",
+        referencia: "Job 5:17"
+    },
+    {
+        texto: "Les aseguro —respondió Jesús— que todo el que por mi causa y la del evangelio haya dejado casa, hermanos, hermanas, madre, padre, hijos o terrenos recibirá cien veces más ahora en este tiempo (casas, hermanos, hermanas, madres, hijos y terrenos, aunque con persecuciones); y en la edad venidera, la vida eterna.",
+        referencia: "Marcos 10:29-30"
+    },
+    {
+        texto: "Obedece sus preceptos y normas que hoy te mando cumplir. De este modo a ti y a tus descendientes les irá bien, y permanecerán mucho tiempo en la tierra que el Señor su Dios les da para siempre.",
+        referencia: "Deuteronomio 4:40"
+    },
+    {
+        texto: "¡Ojalá su corazón esté siempre dispuesto a temerme y a cumplir todos mis mandamientos, para que a ellos y a sus hijos siempre les vaya bien!",
+        referencia: "Deuteronomio 5:29"
+    },
+    {
+        texto: "Dichosos serán ustedes cuando por mi causa la gente los insulte, los persiga y levante contra ustedes toda clase de calumnias.",
+        referencia: "Mateo 5:11"
+    },
+    {
+        texto: "Dios bendijo el séptimo día, y lo santificó, porque en ese día descansó de toda su obra creadora.",
+        referencia: "Génesis 2:3"
+    },
+    {
+        texto: "Así que después de ayunar, orar e imponerles las manos, los despidieron.",
+        referencia: "Hechos 13:3"
+    },
+      {
+        texto: "Cuando Dios resucitó a su siervo, lo envió primero a ustedes para darles la bendición de que cada uno se convierta de sus maldades.",
+        referencia: "Hechos 3:26"
+    },
+    {
+        texto: "Si en verdad enmiendan su conducta y sus acciones, si en verdad practican la justicia los unos con los otros, si no oprimen al extranjero ni al huérfano ni a la viuda, si no derraman sangre inocente en este lugar, ni siguen a otros dioses para su propio mal, entonces los dejaré seguir viviendo en este país, en la tierra que di a sus antepasados para siempre.",
+        referencia: "Jeremías 7:5-7"
+    },
+    {
+        texto: "Y los bendijo con estas palabras: «Sean fructíferos y multiplíquense; llenen la tierra y sométanla; dominen a los peces del mar y a las aves del cielo, y a todos los reptiles que se arrastran por el suelo».",
+        referencia: "Génesis 1:28"
+    },
+    {
+        texto: "Lo que sí les ordené fue lo siguiente: ‘Obedézcanme. Así yo seré su Dios, y ustedes serán mi pueblo. Condúzcanse conforme a todo lo que yo les ordene, a fin de que les vaya bien’.",
+        referencia: "Jeremías 7:23"
+    },
+    {
+        texto: "El Señor nuestro Dios nos mandó temerle y obedecer estos preceptos, para que siempre nos vaya bien y sigamos con vida. Y así ha sido hasta hoy.",
+        referencia: "Deuteronomio 6:24"
+    },
+    {
+        texto: "Dichosos los pobres en espíritu, porque el reino de los cielos les pertenece.",
+        referencia: "Mateo 5:3"
+    },
+    {
+        texto: "El Señor te bendiga y te guarde; el Señor te mire con agrado y te extienda su amor; el Señor te muestre su favor y te conceda la paz.",
+        referencia: "Números 6:24-26"
+    },
+    {
+        texto: "Yo les he dicho estas cosas para que en mí hallen paz. En este mundo afrontarán aflicciones, pero ¡anímense! Yo he vencido al mundo.",
+        referencia: "Juan 16:33"
+    },
+    {
+        texto: "No se inquieten por nada; más bien, en toda ocasión, con oración y ruego, presenten sus peticiones a Dios y denle gracias. Y la paz de Dios, que sobrepasa todo entendimiento, cuidará sus corazones y sus pensamientos en Cristo Jesús.",
+        referencia: "Filipenses 4:6-7"
+    },
+    {
+        texto: "La paz les dejo; mi paz les doy. Yo no se la doy a ustedes como la da el mundo. No se angustien ni se acobarden.",
+        referencia: "Juan 14:27"
+    },
+    {
+        texto: "Que el Señor de paz les conceda su paz siempre y en todas las circunstancias. El Señor sea con todos ustedes.",
+        referencia: "2 Tesalonicenses 3:16"
+    },
+    {
+        texto: "Dichosos los que trabajan por la paz, porque serán llamados hijos de Dios.",
+        referencia: "Mateo 5:9"
+    },
+     {
+        texto: "En efecto, «el que quiera amar la vida y gozar de días felices, que refrene su lengua de hablar el mal y sus labios de proferir engaños; que se aparte del mal y haga el bien; que busque la paz y la siga.»",
+        referencia: "1 Pedro 3:10-11"
+    },
+    {
+        texto: "En paz me acuesto y me duermo, porque solo tú, Señor, me haces vivir confiado.",
+        referencia: "Salmo 4:8"
+    },
+    {
+        texto: "Al de carácter firme lo guardarás en perfecta paz, porque en ti confía.",
+        referencia: "Isaías 26:3"
+    },
+    {
+        texto: "Que gobierne en sus corazones la paz de Cristo, a la cual fueron llamados en un solo cuerpo. Y sean agradecidos.",
+        referencia: "Colosenses 3:15"
+    },
+    {
+        texto: "De modo que se toleren unos a otros y se perdonen si alguno tiene queja contra otro. Así como el Señor los perdonó, perdonen también ustedes.",
+        referencia: "Colosenses 3:13"
+    },
+    {
+        texto: "Que reciban misericordia, paz y amor en abundancia.",
+        referencia: "Judas 1:2"
+    },
+    {
+        texto: "Más vale ser paciente que valiente; más vale el dominio propio que conquistar ciudades.",
+        referencia: "Proverbios 16:32"
+    },
+    {
+        texto: "Que se aparte del mal y haga el bien; que busque la paz y la siga.",
+        referencia: "Salmo 34:14"
+    },
+    {
+        texto: "En fin, el fruto de la justicia se siembra en paz para los que hacen la paz.",
+        referencia: "Santiago 3:18"
+    },
+    {
+        texto: "Busquen la paz con todos, y la santidad, sin la cual nadie verá al Señor.",
+        referencia: "Hebreos 12:14"
+    },
+    {
+        texto: "Esfuércense por mantener la unidad del Espíritu mediante el vínculo de la paz.",
+        referencia: "Efesios 4:3"
+    },
+    {
+        texto: "Los que aman tu ley disfrutan de gran bienestar, y nada los hace tropezar.",
+        referencia: "Salmo 119:165"
+    },
+    {
+        texto: "En cambio, la sabiduría que desciende del cielo es ante todo pura, y además pacífica, bondadosa, dócil, llena de compasión y de buenos frutos, imparcial y sincera.",
+        referencia: "Santiago 3:17"
+    },
+    {
+        texto: "Quédense quietos, reconozcan que yo soy Dios. ¡Yo seré exaltado entre las naciones! ¡Yo seré enaltecido en la tierra!",
+        referencia: "Salmo 46:10"
+    },
+    {
+        texto: "Pongan en práctica lo que de mí han aprendido, recibido y oído, y lo que han visto en mí, y el Dios de paz estará con ustedes.",
+        referencia: "Filipenses 4:9"
+    },
+    {
+        texto: "La mentalidad pecaminosa es muerte, mientras que la mentalidad que proviene del Espíritu es vida y paz.",
+        referencia: "Romanos 8:6"
+    },
+    {
+        texto: "El Señor fortalece a su pueblo; el Señor bendice a su pueblo con la paz.",
+        referencia: "Salmo 29:11"
+    },
+    {
+        texto: "¡Qué hermosos son, sobre los montes, los pies del que trae buenas nuevas; del que proclama la paz, del que anuncia buenas noticias, del que proclama la salvación, del que dice a Sión: «Tu Dios reina»!",
+        referencia: "Isaías 52:7"
+    },
+    {
+        texto: "Honroso es al hombre evitar la contienda, pero no hay necio que no inicie un pleito.",
+        referencia: "Proverbios 20:3"
+    },
+    {
+        texto: "Ciertamente, ninguna disciplina, en el momento de recibirla, parece agradable, sino más bien penosa; sin embargo, después produce una cosecha de justicia y paz para quienes han sido entrenados por ella.",
+        referencia: "Hebreos 12:11"
+    },
+    {
+        texto: "Si es posible, y en cuanto dependa de ustedes, vivan en paz con todos.",
+        referencia: "Romanos 12:18"
+    },
+    {
+        texto: "En consecuencia, ya que hemos sido justificados mediante la fe, tenemos paz con Dios por medio de nuestro Señor Jesucristo.",
+        referencia: "Romanos 5:1"
+    },
+    {
+        texto: "En fin, hermanos, alégrense, busquen su restauración, hagan caso de mi exhortación, sean de un mismo sentir, vivan en paz. Y el Dios de amor y de paz estará con ustedes.",
+        referencia: "2 Corintios 13:11"
+    },
+    {
+        texto: "Aunque cambien de lugar las montañas y se tambaleen las colinas, no cambiará mi fiel amor por ti ni vacilará mi pacto de paz, —dice el Señor, que de ti se compadece—.",
+        referencia: "Isaías 54:10"
+    },
+    {
+        texto: "En los que fraguan el mal habita el engaño, pero hay gozo para los que promueven la paz.",
+        referencia: "Proverbios 12:20"
+    },
+    {
+        texto: "Que Dios nuestro Padre y el Señor Jesucristo les concedan gracia y paz.",
+        referencia: "Romanos 1:7"
+    },
+    {
+        texto: "Hijo mío, no te olvides de mis enseñanzas; más bien, guarda en tu corazón mis mandamientos. Porque prolongarán tu vida muchos años y te traerán prosperidad.",
+        referencia: "Proverbios 3:1-2"
+    },
+    {
+        texto: "Gloria a Dios en las alturas, y en la tierra paz a los que gozan de su buena voluntad.",
+        referencia: "Lucas 2:14"
+    },
+    {
+        texto: "¡La paz sea con ustedes! —repitió Jesús—. Como el Padre me envió a mí, así yo los envío a ustedes.",
+        referencia: "Juan 20:21"
+    },
+    {
+        texto: "Muy pronto el Dios de paz aplastará a Satanás bajo los pies de ustedes. Que la gracia de nuestro Señor Jesús sea con ustedes.",
+        referencia: "Romanos 16:20"
+    },
+    {
+        texto: "Mientras tanto, la iglesia disfrutaba de paz a la vez que se consolidaba en toda Judea, Galilea y Samaria, pues vivía en el temor del Señor. E iba creciendo en número, fortalecida por el Espíritu Santo.",
+        referencia: "Hechos 9:31"
+    },
+    {
+        texto: "Huye de las malas pasiones de la juventud, y esmérate en seguir la justicia, la fe, el amor y la paz, junto con los que invocan al Señor con un corazón limpio.",
+        referencia: "2 Timoteo 2:22"
+    },
+    {
+        texto: "Manténganse firmes, ceñidos con el cinturón de la verdad, protegidos por la coraza de justicia, y calzados con la disposición de proclamar el evangelio de la paz. Además de todo esto, tomen el escudo de la fe, con el cual pueden apagar todas las flechas encendidas del maligno.",
+        referencia: "Efesios 6:14-16"
+    },
+    {
+        texto: "Así que no temas, porque yo estoy contigo; no te angusties, porque yo soy tu Dios. Te fortaleceré y te ayudaré; te sostendré con mi diestra victoriosa.",
+        referencia: "Isaías 41:10"
+    },
+    {
+        texto: "Porque yo sé muy bien los planes que tengo para ustedes —afirma el Señor—, planes de bienestar y no de calamidad, a fin de darles un futuro y una esperanza.",
+        referencia: "Jeremías 29:11"
+    },
+    {
+        texto: "Mantengamos firme la esperanza que profesamos, porque fiel es el que hizo la promesa.",
+        referencia: "Hebreos 10:23"
+    },
+    {
+        texto: "Pero los que confían en el Señor renovarán sus fuerzas; volarán como las águilas: correrán y no se fatigarán, caminarán y no se cansarán.",
+        referencia: "Isaías 40:31"
+    },
+    {
+        texto: "El que los llama es fiel, y así lo hará.",
+        referencia: "1 Tesalonicenses 5:24"
+    },
+    {
+        texto: "Cuando cruces las aguas, yo estaré contigo; cuando cruces los ríos, no te cubrirán sus aguas; cuando camines por el fuego, no te quemarás ni te abrasarán las llamas.",
+        referencia: "Isaías 43:2"
+    },
+    {
+        texto: "Y, después de que ustedes hayan sufrido un poco de tiempo, Dios mismo, el Dios de toda gracia que los llamó a su gloria eterna en Cristo, los restaurará y los hará fuertes, firmes y estables.",
+        referencia: "1 Pedro 5:10"
+    },
+    {
+        texto: "Pidan, y se les dará; busquen, y encontrarán; llamen, y se les abrirá.",
+        referencia: "Mateo 7:7"
+    },
+    {
+        texto: "El Señor no tarda en cumplir su promesa, según entienden algunos la tardanza. Más bien, él tiene paciencia con ustedes, porque no quiere que nadie perezca, sino que todos se arrepientan.",
+        referencia: "2 Pedro 3:9"
+    },
+    {
+        texto: "Reconoce, por tanto, que el Señor tu Dios es el Dios verdadero, el Dios fiel, que cumple su pacto generación tras generación, y muestra su fiel amor a quienes lo aman y obedecen sus mandamientos.",
+        referencia: "Deuteronomio 7:9"
+    },
+    {
+        texto: "Entonces Jesús le dijo: —Yo soy la resurrección y la vida. El que cree en mí vivirá, aunque muera; y todo el que vive y cree en mí no morirá jamás. ¿Crees esto?",
+        referencia: "Juan 11:25-26"
+    },
+    {
+        texto: "Como tenemos estas promesas, queridos hermanos, purifiquémonos de todo lo que contamina el cuerpo y el espíritu, para completar en el temor de Dios la obra de nuestra santificación.",
+        referencia: "2 Corintios 7:1"
+    },
+    {
+        texto: "Dios no es un simple mortal para mentir y cambiar de parecer. ¿Acaso no cumple lo que promete ni lleva a cabo lo que dice?",
+        referencia: "Números 23:19"
+    },
+    {
+        texto: "Mira que estoy a la puerta y llamo. Si alguno oye mi voz y abre la puerta, entraré, y cenaré con él, y él conmigo.",
+        referencia: "Apocalipsis 3:20"
+    },
+    {
+        texto: "El que salga vencedor se vestirá de blanco. Jamás borraré su nombre del libro de la vida, sino que reconoceré su nombre delante de mi Padre y delante de sus ángeles.",
+        referencia: "Apocalipsis 3:5"
+    },
+    {
+        texto: "Así Dios nos ha entregado sus preciosas y magníficas promesas para que ustedes, luego de escapar de la corrupción que hay en el mundo debido a los malos deseos, lleguen a tener parte en la naturaleza divina.",
+        referencia: "2 Pedro 1:4"
+    },
+    {
+        texto: "He colocado mi arco iris en las nubes, el cual servirá como señal de mi pacto con la tierra.",
+        referencia: "Génesis 9:13"
+    },
+    {
+        texto: "Porque tanto amó Dios al mundo que dio a su Hijo unigénito, para que todo el que cree en él no se pierda, sino que tenga vida eterna.",
+        referencia: "Juan 3:16"
+    },
+    {
+        texto: "Por mi parte, yo estoy a punto de ir por el camino que todo mortal transita. Ustedes bien saben que ninguna de las buenas promesas del Señor su Dios ha dejado de cumplirse al pie de la letra. Todas se han hecho realidad, pues él no ha faltado a ninguna de ellas.",
+        referencia: "Josué 23:14"
+    },
+    {
+        texto: "Pues aunque el ejercicio físico trae algún provecho, la piedad es útil para todo, ya que incluye una promesa no solo para la vida presente, sino también para la venidera.",
+        referencia: "1 Timoteo 4:8"
+    },
+    {
+        texto: "Queridos hermanos, ahora somos hijos de Dios, pero todavía no se ha manifestado lo que habremos de ser. Sabemos, sin embargo, que cuando Cristo venga seremos semejantes a él, porque lo veremos tal como él es. Todo el que tiene esta esperanza en Cristo se purifica a sí mismo, así como él es puro.",
+        referencia: "1 Juan 3:2-3"
+    },
+    {
+        texto: "Pero la Escritura declara que todo el mundo es prisionero del pecado, para que mediante la fe en Jesucristo lo prometido se les conceda a los que creen.",
+        referencia: "Gálatas 3:22"
+    },
+    {
+        texto: "Cuando hagas un voto a Dios, no tardes en cumplirlo, porque a Dios no le agradan los necios. Cumple tus votos.",
+        referencia: "Eclesiastés 5:4"
+    },
+    {
+        texto: "Por eso Cristo es mediador de un nuevo pacto, para que los llamados reciban la herencia eterna prometida, ahora que él ha muerto para liberarlos de los pecados cometidos bajo el primer pacto.",
+        referencia: "Hebreos 9:15"
+    },
+    {
+        texto: "Ustedes necesitan perseverar para que, después de haber cumplido la voluntad de Dios, reciban lo que él ha prometido.",
+        referencia: "Hebreos 10:36"
+    },
+    {
+        texto: "De hecho, en ningún otro hay salvación, porque no hay bajo el cielo otro nombre dado a los hombres mediante el cual podamos ser salvos.",
+        referencia: "Hechos 4:12"
+    },
+    {
+        texto: "Cree en el Señor Jesús; así tú y tu familia serán salvos.",
+        referencia: "Hechos 16:31"
+    },
+    {
+        texto: "Pues Dios nos salvó y nos llamó a una vida santa, no por nuestras propias obras, sino por su propia determinación y gracia. Nos concedió este favor en Cristo Jesús antes del comienzo del tiempo.",
+        referencia: "2 Timoteo 1:9"
+    },
+     {
+        texto: "Solo en Dios halla descanso mi alma; de él viene mi salvación.",
+        referencia: "Salmo 62:1"
+    },
+    {
+        texto: "Y todo el que invoque el nombre del Señor será salvo.",
+        referencia: "Hechos 2:21"
+    },
+    {
+        texto: "¿No saben que los malvados no heredarán el reino de Dios? ¡No se dejen engañar! Ni los fornicarios, ni los idólatras, ni los adúlteros, ni los sodomitas, ni los pervertidos sexuales, ni los ladrones, ni los avaros, ni los borrachos, ni los calumniadores, ni los estafadores heredarán el reino de Dios.",
+        referencia: "1 Corintios 6:9-10"
+    },
+    {
+        texto: "Porque con el corazón se cree para ser justificado, pero con la boca se confiesa para ser salvo.",
+        referencia: "Romanos 10:10"
+    },
+    {
+        texto: "En verdad, Dios ha manifestado a toda la humanidad su gracia, la cual trae salvación y nos enseña a rechazar la impiedad y las pasiones mundanas. Así podremos vivir en este mundo con justicia, piedad y dominio propio.",
+        referencia: "Tito 2:11-12"
+    },
+    {
+        texto: "Porque el Hijo del hombre vino a buscar y a salvar lo que se había perdido.",
+        referencia: "Lucas 19:10"
+    },
+    {
+        texto: "El Señor no tarda en cumplir su promesa, según entienden algunos la tardanza. Más bien, él tiene paciencia con ustedes, porque no quiere que nadie perezca, sino que todos se arrepientan.",
+        referencia: "2 Pedro 3:9"
+    },
+       {
+        texto: "Lo que es imposible para los hombres es posible para Dios —aclaró Jesús.",
+        referencia: "Lucas 18:27"
+    },
+    {
+        texto: "Entren por la puerta estrecha. Porque es ancha la puerta y espacioso el camino que conduce a la destrucción, y muchos entran por ella. Pero estrecha es la puerta y angosto el camino que conduce a la vida, y son pocos los que la encuentran.",
+        referencia: "Mateo 7:13-14"
+    },
+    {
+        texto: "El que crea y sea bautizado será salvo, pero el que no crea será condenado.",
+        referencia: "Marcos 16:16"
+    },
+    {
+        texto: "También Cristo fue ofrecido en sacrificio una sola vez para quitar los pecados de muchos; y aparecerá por segunda vez, ya no para cargar con pecado alguno, sino para traer salvación a quienes lo esperan.",
+        referencia: "Hebreos 9:28"
+    },
+    {
+        texto: "Ustedes lo aman a pesar de no haberlo visto; y, aunque no lo ven ahora, creen en él y se alegran con un gozo indescriptible y glorioso, pues están obteniendo la meta de su fe, que es su salvación.",
+        referencia: "1 Pedro 1:8-9"
+    },
+    {
+        texto: "Porque por gracia ustedes han sido salvados mediante la fe; esto no procede de ustedes, sino que es el regalo de Dios, no por obras, para que nadie se jacte.",
+        referencia: "Efesios 2:8-9"
+    },
+    {
+        texto: "Pues así como en Adán todos mueren, también en Cristo todos volverán a vivir.",
+        referencia: "1 Corintios 15:22"
+    },
+    {
+        texto: "Así nos lo ha mandado el Señor: 'Te he puesto por luz para las naciones, a fin de que lleves mi salvación hasta los confines de la tierra'.",
+        referencia: "Hechos 13:47"
+    },
+    {
+        texto: "A la verdad, no me avergüenzo del evangelio, pues es poder de Dios para la salvación de todos los que creen: de los judíos primeramente, pero también de los gentiles.",
+        referencia: "Romanos 1:16"
+    },
+    {
+        texto: "Dios no envió a su Hijo al mundo para condenar al mundo, sino para salvarlo por medio de él.",
+        referencia: "Juan 3:17"
+    },
+    {
+        texto: "Difícilmente habrá quien muera por un justo, aunque tal vez haya quien se atreva a morir por una persona buena. Pero Dios demuestra su amor por nosotros en esto: en que cuando todavía éramos pecadores, Cristo murió por nosotros.",
+        referencia: "Romanos 5:7-8"
+    },
+    {
+        texto: "Porque si, cuando éramos enemigos de Dios, fuimos reconciliados con él mediante la muerte de su Hijo, ¡con cuánta más razón, habiendo sido reconciliados, seremos salvados por su vida!",
+        referencia: "Romanos 5:10"
+    },
+    {
+        texto: "Tú me cubres con el escudo de tu salvación, y con tu diestra me sostienes; tu bondad me ha hecho prosperar. Me has despejado el camino, así que mis tobillos no flaquean.",
+        referencia: "Salmo 18:35-36"
+    },
+    {
+        texto: "Puedes irte —le dijo Jesús—; tu fe te ha sanado. Al momento recobró la vista y empezó a seguir a Jesús por el camino.",
+        referencia: "Marcos 10:52"
+    },
+    {
+        texto: "Para los hombres es imposible —aclaró Jesús, mirándolos fijamente—, pero no para Dios; de hecho, para Dios todo es posible.",
+        referencia: "Marcos 10:27"
+    },
+     {
+        texto: "Aunque la higuera no florezca, ni haya frutos en las vides; aunque falle la cosecha del olivo, y los campos no produzcan alimentos; aunque en el aprisco no haya ovejas, ni ganado alguno en los establos; aun así, yo me regocijaré en el Señor, ¡me alegraré en Dios, mi libertador!",
+        referencia: "Habacuc 3:17-18"
+    },
+    {
+        texto: "Porque «todo el que invoque el nombre del Señor será salvo».",
+        referencia: "Romanos 10:13"
+    },
+    {
+        texto: "A cambio de ti entregaré hombres; ¡a cambio de tu vida entregaré pueblos! Porque te amo y eres ante mis ojos precioso y digno de honra.",
+        referencia: "Isaías 43:4"
+    },
+    {
+        texto: "Dios es mi salvación y mi gloria; es la roca que me fortalece; ¡mi refugio está en Dios!",
+        referencia: "Salmo 62:7"
+    },
+    {
+        texto: "Yo soy la puerta; el que entre por esta puerta, que soy yo, será salvo. Se moverá con entera libertad, y hallará pastos.",
+        referencia: "Juan 10:9"
+    },
+    {
+        texto: "Porque tanto amó Dios al mundo que dio a su Hijo unigénito, para que todo el que cree en él no se pierda, sino que tenga vida eterna.",
+        referencia: "Juan 3:16"
+    },
+    {
+        texto: "Me explico: El mensaje de la cruz es una locura para los que se pierden; en cambio, para los que se salvan, es decir, para nosotros, este mensaje es el poder de Dios.",
+        referencia: "1 Corintios 1:18"
+    },
+    {
+        texto: "Pero el que se mantenga firme hasta el fin será salvo.",
+        referencia: "Mateo 24:13"
+    },
+    {
+        texto: "El que tiene al Hijo, tiene la vida; el que no tiene al Hijo de Dios, no tiene la vida.",
+        referencia: "1 Juan 5:12"
+    },
+    {
+        texto: "Les daré un nuevo corazón, y les infundiré un espíritu nuevo; les quitaré ese corazón de piedra que ahora tienen, y les pondré un corazón de carne.",
+        referencia: "Ezequiel 36:26"
+    },
+    {
+        texto: "Por eso también puede salvar por completo a los que por medio de él se acercan a Dios, ya que vive siempre para interceder por ellos.",
+        referencia: "Hebreos 7:25"
+    },
+    {
+        texto: "¡Cuánto te amo, Señor, fuerza mía! El Señor es mi roca, mi amparo, mi libertador; es mi Dios, el peñasco en que me refugio. Es mi escudo, el poder que me salva, ¡mi más alto escondite!",
+        referencia: "Salmo 18:1-2"
+    },
+    {
+        texto: "Sáname, Señor, y seré sanado; sálvame y seré salvado, porque tú eres mi alabanza.",
+        referencia: "Jeremías 17:14"
+    },
+    {
+        texto: "Esto es, que en Cristo, Dios estaba reconciliando al mundo consigo mismo, no tomándole en cuenta sus pecados y encargándonos a nosotros el mensaje de la reconciliación.",
+        referencia: "2 Corintios 5:19"
+    },
+    {
+        texto: "Ahora, hermanos, quiero recordarles el evangelio que les prediqué, el mismo que recibieron y en el cual se mantienen firmes. Mediante este evangelio son salvos, si se aferran a la palabra que les prediqué. De otro modo, habrán creído en vano.",
+        referencia: "1 Corintios 15:1-2"
+    },
+    {
+        texto: "Porque el que quiera salvar su vida, la perderá; pero el que pierda su vida por mi causa, la encontrará.",
+        referencia: "Mateo 16:25"
+    },
+    {
+        texto: "Los justos claman, y el Señor los oye; los libra de todas sus angustias. El Señor está cerca de los quebrantados de corazón, y salva a los de espíritu abatido.",
+        referencia: "Salmo 34:17-18"
+    },
+    {
+        texto: "En cambio, nosotros somos ciudadanos del cielo, de donde anhelamos recibir al Salvador, el Señor Jesucristo.",
+        referencia: "Filipenses 3:20"
+    },
+    {
+        texto: "El que cree en el Hijo tiene vida eterna; pero el que rechaza al Hijo no sabrá lo que es esa vida, sino que permanecerá bajo el castigo de Dios.",
+        referencia: "Juan 3:36"
+    },
+    {
+        texto: "El ladrón no viene más que a robar, matar y destruir; yo he venido para que tengan vida, y la tengan en abundancia.",
+        referencia: "Juan 10:10"
+    },
+    {
+        texto: "Él nos salvó, no por nuestras propias obras de justicia, sino por su misericordia. Nos salvó mediante el lavamiento de la regeneración y de la renovación por el Espíritu Santo.",
+        referencia: "Tito 3:5"
+    },
+    {
+        texto: "Tan lejos de nosotros echó nuestras transgresiones como lejos del oriente está el occidente.",
+        referencia: "Salmo 103:12"
+    },
+    {
+        texto: "Porque sé que, gracias a las oraciones de ustedes y a la ayuda que me da el Espíritu de Jesucristo, todo esto resultará en mi liberación.",
+        referencia: "Filipenses 1:19"
+    },
+    {
+        texto: "De hecho, en el evangelio se revela la justicia que proviene de Dios, la cual es por fe de principio a fin, tal como está escrito: «El justo vivirá por la fe».",
+        referencia: "Romanos 1:17"
+    },
+    {
+        texto: "Porque el Señor es nuestro guía; el Señor es nuestro gobernante. El Señor es nuestro rey: ¡Él nos salvará!",
+        referencia: "Isaías 33:22"
+    },
+    {
+        texto: "Por esto, despójense de toda inmundicia y de la maldad que tanto abunda, para que puedan recibir con humildad la palabra sembrada en ustedes, la cual tiene poder para salvarles la vida.",
+        referencia: "Santiago 1:21"
+    },
+    {
+        texto: "Encamíname en tu verdad, ¡enséñame! Tú eres mi Dios y Salvador; ¡en ti pongo mi esperanza todo el día!",
+        referencia: "Salmo 25:5"
+    },
+    {
+        texto: "De hecho, considero que en nada se comparan los sufrimientos actuales con la gloria que habrá de revelarse en nosotros.",
+        referencia: "Romanos 8:18"
+    },
+    {
+        texto: "Y, consumada su perfección, llegó a ser autor de salvación eterna para todos los que le obedecen.",
+        referencia: "Hebreos 5:9"
+    },
+    {
+        texto: "He disipado tus transgresiones como el rocío, y tus pecados como la bruma de la mañana. Vuelve a mí, que te he redimido.",
+        referencia: "Isaías 44:22"
+    },
+    {
+        texto: "El Señor libra a sus siervos; no serán condenados los que en él confían.",
+        referencia: "Salmo 34:22"
+    },
+    {
+        texto: "Porque lo dice el excelso y sublime, el que vive para siempre, cuyo nombre es santo: «Yo habito en un lugar santo y sublime, pero también con el contrito y humilde de espíritu, para reanimar el espíritu de los humildes y alentar el corazón de los quebrantados.»",
+        referencia: "Isaías 57:15"
+    },
+    {
+        texto: "Él nos libró del dominio de la oscuridad y nos trasladó al reino de su amado Hijo, en quien tenemos redención, el perdón de pecados.",
+        referencia: "Colosenses 1:13-14"
+    },
+    {
+        texto: "Porque el que quiera salvar su vida la perderá; pero el que pierda su vida por mi causa y por el evangelio la salvará.",
+        referencia: "Marcos 8:35"
+    },
+    {
+        texto: "Tuya es, Señor, la salvación; ¡envía tu bendición sobre tu pueblo! Selah",
+        referencia: "Salmo 3:8"
+    },
+    {
+        texto: "No todo el que me dice: “Señor, Señor”, entrará en el reino de los cielos, sino solo el que hace la voluntad de mi Padre que está en el cielo.",
+        referencia: "Mateo 7:21"
+    },
+    {
+        texto: "Yo sé que mi redentor vive, y que al final triunfará sobre la muerte.",
+        referencia: "Job 19:25"
+    },
+    {
+        texto: "Porque ni aun el Hijo del hombre vino para que le sirvan, sino para servir y para dar su vida en rescate por muchos.",
+        referencia: "Marcos 10:45"
+    },
+    {
+        texto: "Pero ustedes son linaje escogido, real sacerdocio, nación santa, pueblo que pertenece a Dios, para que proclamen las obras maravillosas de aquel que los llamó de las tinieblas a su luz admirable.",
+        referencia: "1 Pedro 2:9"
+    },
+    {
+        texto: "Para los hombres es imposible —aclaró Jesús, mirándolos fijamente—, mas para Dios todo es posible.",
+        referencia: "Mateo 19:26"
+    },
+    {
+        texto: "Pero yo he puesto mi esperanza en el Señor; yo espero en el Dios de mi salvación. ¡Mi Dios me escuchará!",
+        referencia: "Miqueas 7:7"
+    },
+    {
+        texto: "Restáuranos, Señor Dios Todopoderoso; haz resplandecer tu rostro sobre nosotros, y sálvanos.",
+        referencia: "Salmo 80:19"
+    },
+    {
+        texto: "¡Qué hermosos son, sobre los montes, los pies del que trae buenas nuevas; del que proclama la paz, del que anuncia buenas noticias, del que proclama la salvación, del que dice a Sión: «Tu Dios reina»!",
+        referencia: "Isaías 52:7"
+    },
+    {
+        texto: "Solo él es mi roca y mi salvación; él es mi protector. ¡Jamás habré de caer!",
+        referencia: "Salmo 62:2"
+    },
+    {
+        texto: "Deseen con ansias la leche pura de la palabra, como niños recién nacidos. Así, por medio de ella, crecerán en su salvación.",
+        referencia: "1 Pedro 2:2"
+    },
+    {
+        texto: "Entonces llamó a la multitud y a sus discípulos. —Si alguien quiere ser mi discípulo —les dijo—, que se niegue a sí mismo, lleve su cruz y me siga.",
+        referencia: "Marcos 8:34"
+    },
+    {
+        texto: "Mi vida entera está en tus manos; líbrame de mis enemigos y perseguidores.",
+        referencia: "Salmo 31:15"
+    },
+    {
+        texto: "No desecho la gracia de Dios. Si la justicia se obtuviera mediante la ley, Cristo habría muerto en vano.",
+        referencia: "Gálatas 2:21"
+    },
+    {
+        texto: "Oh Dios y Salvador nuestro, por la gloria de tu nombre, ayúdanos; por tu nombre, líbranos y perdona nuestros pecados.",
+        referencia: "Salmo 79:9"
+    },
+    {
+        texto: "Así como el Hijo del hombre no vino para que le sirvan, sino para servir y para dar su vida en rescate por muchos.",
+        referencia: "Mateo 20:28"
+    },
+    {
+        texto: "Bendito sea el Señor, nuestro Dios y Salvador, que día tras día sobrelleva nuestras cargas. Selah",
+        referencia: "Salmo 68:19"
+    },
+    {
+        texto: "Yo, en cambio, te ofreceré sacrificios y cánticos de gratitud. Cumpliré las promesas que te hice. ¡La salvación viene del Señor!",
+        referencia: "Jonás 2:9"
+    },
+    {
+        texto: "Ustedes, queridos hijos, son de Dios y han vencido a esos falsos profetas, porque el que está en ustedes es más poderoso que el que está en el mundo.",
+        referencia: "1 Juan 4:4"
+    },
+    {
+        texto: "Este pobre clamó, y el Señor le oyó y lo libró de todas sus angustias.",
+        referencia: "Salmo 34:6"
+    },
+    {
+        texto: "La tristeza que proviene de Dios produce el arrepentimiento que lleva a la salvación, de la cual no hay que arrepentirse, mientras que la tristeza del mundo produce la muerte.",
+        referencia: "2 Corintios 7:10"
+    },
+    {
+        texto: "Todo esto demuestra que el Señor sabe librar de la prueba a los que viven como Dios quiere, y reservar a los impíos para castigarlos en el día del juicio.",
+        referencia: "2 Pedro 2:9"
+    },
+    {
+        texto: "Señor, ¡danos la salvación! Señor, ¡concédenos la victoria! Bendito el que viene en el nombre del Señor. Desde la casa del Señor los bendecimos.",
+        referencia: "Salmo 118:25-26"
+    },
+    {
+        texto: "Que irradie tu faz sobre tu siervo; por tu gran amor, sálvame.",
+        referencia: "Salmo 31:16"
+    },
+    {
+        texto: "No hay más que un solo legislador y juez, aquel que puede salvar y destruir. Tú, en cambio, ¿quién eres para juzgar a tu prójimo?",
+        referencia: "Santiago 4:12"
+    },
+    {
+        texto: "Esposas, sométanse a sus propios esposos como al Señor. Porque el esposo es cabeza de su esposa, así como Cristo es cabeza y Salvador de la iglesia, la cual es su cuerpo.",
+        referencia: "Efesios 5:22-23"
+    },
+    {
+        texto: "Tomen el casco de la salvación y la espada del Espíritu, que es la palabra de Dios.",
+        referencia: "Efesios 6:17"
+    },
+        {
+        texto: "El día que yo actúe ellos serán mi propiedad exclusiva —dice el Señor Todopoderoso—. Tendré compasión de ellos, como se compadece un hombre del hijo que le sirve.",
+        referencia: "Malaquías 3:17"
+    },
+    {
+        texto: "Examínense para ver si están en la fe; pruébense a sí mismos. ¿No se dan cuenta de que Cristo Jesús está en ustedes? ¡A menos que fracasen en la prueba!",
+        referencia: "2 Corintios 13:5"
+    },
+    {
+        texto: "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso. No se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor.",
+        referencia: "1 Corintios 13:4-5"
+    },
+    {
+        texto: "Hagan todo con amor.",
+        referencia: "1 Corintios 16:14"
+    },
+    {
+        texto: "Por la mañana hazme saber de tu gran amor, porque en ti he puesto mi confianza. Señálame el camino que debo seguir, porque a ti elevo mi alma.",
+        referencia: "Salmo 143:8"
+    },
+    {
+        texto: "Por encima de todo, vístanse de amor, que es el vínculo perfecto.",
+        referencia: "Colosenses 3:14"
+    },
+    {
+        texto: "Que nunca te abandonen el amor y la verdad: llévalos siempre alrededor de tu cuello y escríbelos en el libro de tu corazón. Contarás con el favor de Dios y tendrás buena fama entre la gente.",
+        referencia: "Proverbios 3:3-4"
+    },
+    {
+        texto: "Y nosotros hemos llegado a saber y creer que Dios nos ama. Dios es amor. El que permanece en amor, permanece en Dios, y Dios en él.",
+        referencia: "1 Juan 4:16"
+    },
+    {
+        texto: "Ahora, pues, permanecen estas tres virtudes: la fe, la esperanza y el amor. Pero la más excelente de ellas es el amor.",
+        referencia: "1 Corintios 13:13"
+    },
+    {
+        texto: "Nosotros amamos porque él nos amó primero.",
+        referencia: "1 Juan 4:19"
+    },
+    {
+        texto: "Siempre humildes y amables, pacientes, tolerantes unos con otros en amor.",
+        referencia: "Efesios 4:2"
+    },
+    {
+        texto: "Sobre todo, ámense los unos a los otros profundamente, porque el amor cubre multitud de pecados.",
+        referencia: "1 Pedro 4:8"
+    },
+    {
+        texto: "El amor debe ser sincero. Aborrezcan el mal; aférrense al bien.",
+        referencia: "Romanos 12:9"
+    },
+    {
+        texto: "Le pido que, por medio del Espíritu y con el poder que procede de sus gloriosas riquezas, los fortalezca a ustedes en lo íntimo de su ser, para que por fe Cristo habite en sus corazones. Y pido que, arraigados y cimentados en amor.",
+        referencia: "Efesios 3:16-17"
+    },
+     {
+        texto: "Y este es mi mandamiento: que se amen los unos a los otros, como yo los he amado.",
+        referencia: "Juan 15:12"
+    },
+    {
+        texto: "Si tengo el don de profecía y entiendo todos los misterios y poseo todo conocimiento, y si tengo una fe que logra trasladar montañas, pero me falta el amor, no soy nada.",
+        referencia: "1 Corintios 13:2"
+    },
+    {
+        texto: "Que el Señor los lleve a amar como Dios ama, y a perseverar como Cristo perseveró.",
+        referencia: "2 Tesalonicenses 3:5"
+    },
+    {
+        texto: "¿Puede una madre olvidar a su niño de pecho, y dejar de amar al hijo que ha dado a luz? Aun cuando ella lo olvidara, ¡yo no te olvidaré! Grabada te llevo en las palmas de mis manos; tus muros siempre los tengo presentes.",
+        referencia: "Isaías 49:15-16"
+    },
+    {
+        texto: "Ámense los unos a los otros con amor fraternal, respetándose y honrándose mutuamente.",
+        referencia: "Romanos 12:10"
+    },
+    {
+        texto: "Esposos, amen a sus esposas, así como Cristo amó a la iglesia y se entregó por ella para hacerla santa. Él la purificó, lavándola con agua mediante la palabra.",
+        referencia: "Efesios 5:25-26"
+    },
+    {
+        texto: "Nadie ha visto jamás a Dios, pero, si nos amamos los unos a los otros, Dios permanece entre nosotros, y entre nosotros su amor se ha manifestado plenamente.",
+        referencia: "1 Juan 4:12"
+    },
+    {
+        texto: "Grábame como un sello sobre tu corazón; llévame como una marca sobre tu brazo. Fuerte es el amor, como la muerte, y tenaz la pasión, como el sepulcro. Como llama divina es el fuego ardiente del amor.",
+        referencia: "Cantares 8:6"
+    },
+    {
+        texto: "Si alguien afirma: «Yo amo a Dios», pero odia a su hermano, es un mentiroso; pues el que no ama a su hermano, a quien ha visto, no puede amar a Dios, a quien no ha visto.",
+        referencia: "1 Juan 4:20"
+    },
+    {
+        texto: "Nadie tiene amor más grande que el dar la vida por sus amigos.",
+        referencia: "Juan 15:13"
+    },
+    {
+        texto: "Sino que el amor perfecto echa fuera el temor. El que teme espera el castigo, así que no ha sido perfeccionado en el amor.",
+        referencia: "1 Juan 4:18"
+    },
+    {
+        texto: "A cambio de ti entregaré hombres; ¡a cambio de tu vida entregaré pueblos! Porque te amo y eres ante mis ojos precioso y digno de honra.",
+        referencia: "Isaías 43:4"
+    },
+    {
+        texto: "Sin embargo, como está escrito: «Ningún ojo ha visto, ningún oído ha escuchado, ninguna mente humana ha concebido lo que Dios ha preparado para quienes lo aman».",
+        referencia: "1 Corintios 2:9"
+    },
+    {
+        texto: "No tengan deudas pendientes con nadie, a no ser la de amarse unos a otros. De hecho, quien ama al prójimo ha cumplido la ley.",
+        referencia: "Romanos 13:8"
+    },
+    {
+        texto: "Que el Señor los haga crecer para que se amen más y más unos a otros, y a todos, tal como nosotros los amamos a ustedes.",
+        referencia: "1 Tesalonicenses 3:12"
+    },
+      {
+        texto: "¡Fíjense qué gran amor nos ha dado el Padre, que se nos llame hijos de Dios! ¡Y lo somos! El mundo no nos conoce, precisamente porque no lo conoció a él.",
+        referencia: "1 Juan 3:1"
+    },
+    {
+        texto: "El que no ama no conoce a Dios, porque Dios es amor.",
+        referencia: "1 Juan 4:8"
+    },
+    {
+        texto: "El odio es motivo de disensiones, pero el amor cubre todas las faltas.",
+        referencia: "Proverbios 10:12"
+    },
+    {
+        texto: "El que va tras la justicia y el amor halla vida, prosperidad y honra.",
+        referencia: "Proverbios 21:21"
+    },
+    {
+        texto: "El gran amor del Señor nunca se acaba, y su compasión jamás se agota. Cada mañana se renuevan sus bondades; ¡muy grande es su fidelidad!",
+        referencia: "Lamentaciones 3:22-23"
+    },
+    {
+        texto: "Pues estoy convencido de que ni la muerte ni la vida, ni los ángeles ni los demonios, ni lo presente ni lo por venir, ni los poderes, ni lo alto ni lo profundo, ni cosa alguna en toda la creación podrá apartarnos del amor que Dios nos ha manifestado en Cristo Jesús nuestro Señor.",
+        referencia: "Romanos 8:38-39"
+    },
+    {
+        texto: "Ama al Señor tu Dios con todo tu corazón, con toda tu alma, con toda tu mente y con todas tus fuerzas.",
+        referencia: "Marcos 12:30"
+    },
+    {
+        texto: "El amor no se deleita en la maldad, sino que se regocija con la verdad. Todo lo disculpa, todo lo cree, todo lo espera, todo lo soporta.",
+        referencia: "1 Corintios 13:6-7"
+    },
+    {
+        texto: "Que reciban misericordia, paz y amor en abundancia.",
+        referencia: "Judas 1:2"
+    },
+    {
+        texto: "El segundo es: 'Ama a tu prójimo como a ti mismo'. No hay otro mandamiento más importante que estos.",
+        referencia: "Marcos 12:31"
+    },
+    {
+        texto: "Que nadie busque sus propios intereses, sino los del prójimo.",
+        referencia: "1 Corintios 10:24"
+    },
+    {
+        texto: "Yo amo al Señor porque él escucha mi voz suplicante. Por cuanto él inclina a mí su oído, lo invocaré toda mi vida.",
+        referencia: "Salmo 116:1-2"
+    },
+    {
+        texto: "Más bien, al vivir la verdad con amor, creceremos hasta ser en todo como aquel que es la cabeza, es decir, Cristo.",
+        referencia: "Efesios 4:15"
+    },
+    {
+        texto: "Si hablo en lenguas humanas y angelicales, pero no tengo amor, no soy más que un metal que resuena o un platillo que hace ruido.",
+        referencia: "1 Corintios 13:1"
+    },
+    {
+        texto: "En cambio, el fruto del Espíritu es amor, alegría, paz, paciencia, amabilidad, bondad, fidelidad, humildad y dominio propio. No hay ley que condene estas cosas.",
+        referencia: "Gálatas 5:22-23"
+    },
+    {
+        texto: "El amor no perjudica al prójimo. Así que el amor es el cumplimiento de la ley.",
+        referencia: "Romanos 13:10"
+    },
+    {
+        texto: "Pues Dios no nos ha dado un espíritu de timidez, sino de poder, de amor y de dominio propio.",
+        referencia: "2 Timoteo 1:7"
+    },
+    {
+        texto: "Pero yo les digo: Amen a sus enemigos y oren por quienes los persiguen.",
+        referencia: "Mateo 5:44"
+    },
+    {
+        texto: "Que nadie te menosprecie por ser joven. Al contrario, que los creyentes vean en ti un ejemplo a seguir en la manera de hablar, en la conducta, y en amor, fe y pureza.",
+        referencia: "1 Timoteo 4:12"
+    },
+    {
+        texto: "¿Quién nos apartará del amor de Cristo? ¿La tribulación, o la angustia, la persecución, el hambre, la indigencia, el peligro, o la violencia?",
+        referencia: "Romanos 8:35"
+    },
+    {
+        texto: "En esto consiste el amor: no en que nosotros hayamos amado a Dios, sino en que él nos amó y envió a su Hijo para que fuera ofrecido como sacrificio por el perdón de nuestros pecados.",
+        referencia: "1 Juan 4:10"
+    },
+    {
+        texto: "Porque solo un instante dura su enojo, pero toda una vida su bondad. Si por la noche hay llanto, por la mañana habrá gritos de alegría.",
+        referencia: "Salmo 30:5"
+    },
+    {
+        texto: "Esta es la oración al Dios de mi vida: que de día el Señor mande su amor, y de noche su canto me acompañe.",
+        referencia: "Salmo 42:8"
+    },
+    {
+        texto: "El Señor es clemente y compasivo, lento para la ira y grande en amor.",
+        referencia: "Salmo 103:8"
+    },
+    {
+        texto: "Tu amor es mejor que la vida; por eso mis labios te alabarán. Te bendeciré mientras viva, y alzando mis manos te invocaré.",
+        referencia: "Salmo 63:3-4"
+    },
+    {
+        texto: "No alimentes odios secretos contra tu hermano, sino reprende con franqueza a tu prójimo para que no sufras las consecuencias de su pecado. No seas vengativo con tu prójimo, ni le guardes rencor. Ama a tu prójimo como a ti mismo. Yo soy el Señor.",
+        referencia: "Levítico 19:17-18"
+    },
+    {
+        texto: "Precisamente por eso, esfuércense por añadir a su fe, virtud; a su virtud, entendimiento; al entendimiento, dominio propio; al dominio propio, constancia; a la constancia, devoción a Dios; a la devoción a Dios, afecto fraternal; y al afecto fraternal, amor.",
+        referencia: "2 Pedro 1:5-7"
+    },
+    {
+        texto: "Si reparto entre los pobres todo lo que poseo, y si entrego mi cuerpo para que lo consuman las llamas, pero no tengo amor, nada gano con eso.",
+        referencia: "1 Corintios 13:3"
+    },
+    {
+        texto: "Tú, en cambio, hombre de Dios, huye de todo eso, y esmérate en seguir la justicia, la piedad, la fe, el amor, la constancia y la humildad.",
+        referencia: "1 Timoteo 6:11"
+    },
+    {
+        texto: "Y lleven una vida de amor, así como Cristo nos amó y se entregó por nosotros como ofrenda y sacrificio fragante para Dios.",
+        referencia: "Efesios 5:2"
+    },
+    {
+        texto: "Queridos hermanos, ya que Dios nos ha amado así, también nosotros debemos amarnos los unos a los otros.",
+        referencia: "1 Juan 4:11"
+    },
+    {
+        texto: "No bien decía: «Mis pies resbalan», cuando ya tu amor, Señor, venía en mi ayuda.",
+        referencia: "Salmo 94:18"
+    },
+    {
+        texto: "Este es el mensaje que han oído desde el principio: que nos amemos los unos a los otros.",
+        referencia: "1 Juan 3:11"
+    },
+    {
+        texto: "Sigan amándose unos a otros fraternalmente. No se olviden de practicar la hospitalidad, pues gracias a ella algunos, sin saberlo, hospedaron ángeles.",
+        referencia: "Hebreos 13:1-2"
+    },
+    {
+        texto: "Aunque cambien de lugar las montañas y se tambaleen las colinas, no cambiará mi fiel amor por ti ni vacilará mi pacto de paz, —dice el Señor, que de ti se compadece—.",
+        referencia: "Isaías 54:10"
+    },
+    {
+        texto: "Queridos hermanos, amémonos los unos a los otros, porque el amor viene de Dios, y todo el que ama ha nacido de él y lo conoce.",
+        referencia: "1 Juan 4:7"
+    },
+    {
+        texto: "Pues tu amor es tan grande que llega a los cielos; ¡tu verdad llega hasta el firmamento!",
+        referencia: "Salmo 57:10"
+    },
+    {
+        texto: "Como respuesta el hombre citó: 'Ama al Señor tu Dios con todo tu corazón, con todo tu ser, con todas tus fuerzas y con toda tu mente', y: 'Ama a tu prójimo como a ti mismo'.",
+        referencia: "Lucas 10:27"
+    },
+      {
+        texto: "No amen al mundo ni nada de lo que hay en él. Si alguien ama al mundo, no tiene el amor del Padre.",
+        referencia: "1 Juan 2:15"
+    },
+    {
+        texto: "Sin embargo, en todo esto somos más que vencedores por medio de aquel que nos amó.",
+        referencia: "Romanos 8:37"
+    },
+    {
+        texto: "Este mandamiento nuevo les doy: que se amen los unos a los otros. Así como yo los he amado, también ustedes deben amarse los unos a los otros.",
+        referencia: "Juan 13:34"
+    },
+    {
+        texto: "Si ustedes me aman, obedecerán mis mandamientos.",
+        referencia: "Juan 14:15"
+    },
+    {
+        texto: "Ahora bien, sabemos que Dios dispone todas las cosas para el bien de quienes lo aman, los que han sido llamados de acuerdo con su propósito.",
+        referencia: "Romanos 8:28"
+    },
+    {
+        texto: "Tú, Señor, eres bueno y perdonador; grande es tu amor por todos los que te invocan.",
+        referencia: "Salmo 86:5"
+    },
+    {
+        texto: "Así manifestó Dios su amor entre nosotros: en que envió a su Hijo unigénito al mundo para que vivamos por medio de él.",
+        referencia: "1 Juan 4:9"
+    },
+    {
+        texto: "En efecto, toda la ley se resume en un solo mandamiento: «Ama a tu prójimo como a ti mismo».",
+        referencia: "Gálatas 5:14"
+    },
+    {
+        texto: "De este modo todos sabrán que son mis discípulos, si se aman los unos a los otros.",
+        referencia: "Juan 13:35"
+    },
+    {
+        texto: "Y esta esperanza no nos defrauda, porque Dios ha derramado su amor en nuestro corazón por el Espíritu Santo que nos ha dado.",
+        referencia: "Romanos 5:5"
+    },
+    {
+        texto: "¿Quién es el que me ama? El que hace suyos mis mandamientos y los obedece. Y al que me ama, mi Padre lo amará, y yo también lo amaré y me manifestaré a él.",
+        referencia: "Juan 14:21"
+    },
+    {
+        texto: "Hijo mío, no desprecies la disciplina del Señor, ni te ofendas por sus reprensiones. Porque el Señor disciplina a los que ama, como corrige un padre a su hijo querido.",
+        referencia: "Proverbios 3:11-12"
+    },
+    {
+        texto: "Yo reprendo y disciplino a todos los que amo. Por lo tanto, sé fervoroso y arrepiéntete.",
+        referencia: "Apocalipsis 3:19"
+    },
+    {
+        texto: "Pero Dios, que es rico en misericordia, por su gran amor por nosotros, nos dio vida con Cristo, aun cuando estábamos muertos en pecados. ¡Por gracia ustedes han sido salvados!",
+        referencia: "Efesios 2:4-5"
+    },
+    {
+        texto: "En esto conocemos lo que es el amor: en que Jesucristo entregó su vida por nosotros. Así también nosotros debemos entregar la vida por nuestros hermanos.",
+        referencia: "1 Juan 3:16"
+    },
+    {
+        texto: "El Señor ama la justicia y el derecho; llena está la tierra de su amor.",
+        referencia: "Salmo 33:5"
+    },
+    {
+        texto: "En fin, hermanos, alégrense, busquen su restauración, hagan caso de mi exhortación, sean de un mismo sentir, vivan en paz. Y el Dios de amor y de paz estará con ustedes.",
+        referencia: "2 Corintios 13:11"
+    },
+    {
+        texto: "Les hablo así, hermanos, porque ustedes han sido llamados a ser libres; pero no se valgan de esa libertad para dar rienda suelta a sus pasiones. Más bien sírvanse unos a otros con amor.",
+        referencia: "Gálatas 5:13"
+    },
+    {
+        texto: "Porque los mandamientos que dicen: «No cometas adulterio», «No mates», «No robes», «No codicies», y todos los demás mandamientos, se resumen en este precepto: «Ama a tu prójimo como a ti mismo».",
+        referencia: "Romanos 13:9"
+    },
+    {
+        texto: "Quiero que lo sepan para que cobren ánimo, permanezcan unidos por amor, y tengan toda la riqueza que proviene de la convicción y del entendimiento. Así conocerán el misterio de Dios, es decir, a Cristo.",
+        referencia: "Colosenses 2:2"
+    },
+    {
+        texto: "El segundo se parece a este: “Ama a tu prójimo como a ti mismo”.",
+        referencia: "Mateo 22:39"
+    },
+      {
+        texto: "Le contestó Jesús: —El que me ama, obedecerá mi palabra, y mi Padre lo amará, y haremos nuestra morada en él.",
+        referencia: "Juan 14:23"
+    },
+    {
+        texto: "Que la gracia del Señor Jesucristo, el amor de Dios y la comunión del Espíritu Santo sean con todos ustedes.",
+        referencia: "2 Corintios 13:14"
+    },
+    {
+        texto: "Una sola cosa le pido al Señor, y es lo único que persigo: habitar en la casa del Señor todos los días de mi vida, para contemplar la hermosura del Señor y recrearme en su templo.",
+        referencia: "Salmo 27:4"
+    },
+    {
+        texto: "Yo les he dado a conocer quién eres, y seguiré haciéndolo, para que el amor con que me has amado esté en ellos, y yo mismo esté en ellos.",
+        referencia: "Juan 17:26"
+    },
+    {
+        texto: "Si alguien que posee bienes materiales ve que su hermano está pasando necesidad, y no tiene compasión de él, ¿cómo se puede decir que el amor de Dios habita en él?",
+        referencia: "1 Juan 3:17"
+    },
+    {
+        texto: "Y él nos ha dado este mandamiento: el que ama a Dios, ame también a su hermano.",
+        referencia: "1 Juan 4:21"
+    },
+    {
+        texto: "Escucha, Israel: El Señor nuestro Dios es el único Señor. Ama al Señor tu Dios con todo tu corazón y con toda tu alma y con todas tus fuerzas.",
+        referencia: "Deuteronomio 6:4-5"
+    },
+    {
+        texto: "Ustedes, en cambio, queridos hermanos, manténganse en el amor de Dios, edificándose sobre la base de su santísima fe y orando en el Espíritu Santo, mientras esperan que nuestro Señor Jesucristo, en su misericordia, les conceda vida eterna.",
+        referencia: "Judas 1:20-21"
+    },
+    {
+        texto: "Tan compasivo es el Señor con los que le temen como lo es un padre con sus hijos.",
+        referencia: "Salmo 103:13"
+    },
+    {
+        texto: "Porque tanto amó Dios al mundo que dio a su Hijo unigénito, para que todo el que cree en él no se pierda, sino que tenga vida eterna.",
+        referencia: "Juan 3:16"
+    },
+    {
+        texto: "Que irradie tu faz sobre tu siervo; por tu gran amor, sálvame.",
+        referencia: "Salmo 31:16"
+    },
+    {
+        texto: "Hermanos, siempre debemos dar gracias a Dios por ustedes, como es justo, porque su fe se acrecienta cada vez más, y en cada uno de ustedes sigue abundando el amor hacia los otros.",
+        referencia: "2 Tesalonicenses 1:3"
+    },
+    {
+        texto: "No me niegues, Señor, tu misericordia; que siempre me protejan tu amor y tu verdad.",
+        referencia: "Salmo 40:11"
+    },
+    {
+        texto: "El amor de Cristo nos obliga, porque estamos convencidos de que uno murió por todos, y por consiguiente todos murieron. Y él murió por todos, para que los que viven ya no vivan para sí, sino para el que murió por ellos y fue resucitado.",
+        referencia: "2 Corintios 5:14-15"
+    },
+    {
+        texto: "Si obedecen mis mandamientos, permanecerán en mi amor, así como yo he obedecido los mandamientos de mi Padre y permanezco en su amor.",
+        referencia: "Juan 15:10"
+    },
+    {
+        texto: "No mates, no cometas adulterio, no robes, no presentes falso testimonio, honra a tu padre y a tu madre, y ama a tu prójimo como a ti mismo.",
+        referencia: "Mateo 19:18b-19"
+    },
+    {
+        texto: "Rásguense el corazón y no las vestiduras. Vuélvanse al Señor su Dios, porque él es bondadoso y compasivo, lento para la ira y lleno de amor, cambia de parecer y no castiga.",
+        referencia: "Joel 2:13"
+    },
+    {
+        texto: "La gloria, Señor, no es para nosotros; no es para nosotros, sino para tu nombre, por causa de tu amor y tu verdad.",
+        referencia: "Salmo 115:1"
+    },
+    {
+        texto: "En Cristo Jesús de nada vale estar o no estar circuncidados; lo que vale es la fe que actúa mediante el amor.",
+        referencia: "Gálatas 5:6"
+    },
+      {
+        texto: "¡Aleluya! ¡Alabado sea el Señor! Dichoso el que teme al Señor, el que halla gran deleite en sus mandamientos.",
+        referencia: "Salmo 112:1"
+    },
+    {
+        texto: "Porque no fue su espada la que conquistó la tierra, ni fue su brazo el que les dio la victoria: fue tu brazo, tu mano derecha; fue la luz de tu rostro, porque tú los amabas.",
+        referencia: "Salmo 44:3"
+    },
+    {
+        texto: "Amarlo con todo el corazón, con todo el entendimiento y con todas las fuerzas, y amar al prójimo como a uno mismo, es más importante que todos los holocaustos y sacrificios.",
+        referencia: "Marcos 12:33"
+    },
+    {
+        texto: "Huye de las malas pasiones de la juventud, y esmérate en seguir la justicia, la fe, el amor y la paz, junto con los que invocan al Señor con un corazón limpio.",
+        referencia: "2 Timoteo 2:22"
+    },
+    {
+        texto: "Que tú, Señor, eres todo amor; que tú pagarás a cada uno según lo que merezcan sus obras.",
+        referencia: "Salmo 62:12"
+    },
+    {
+        texto: "Pónganse toda la armadura de Dios para que puedan hacer frente a las artimañas del diablo.",
+        referencia: "Efesios 6:11"
+    },
+    {
+        texto: "Tú eres mi refugio; tú me protegerás del peligro y me rodearás con cánticos de liberación. Selah",
+        referencia: "Salmo 32:7"
+    },
+    {
+        texto: "Dios es nuestro amparo y nuestra fortaleza, nuestra ayuda segura en momentos de angustia.",
+        referencia: "Salmo 46:1"
+    },
+    {
+        texto: "Sean fuertes y valientes. No teman ni se asusten ante esas naciones, pues el Señor su Dios siempre los acompañará; nunca los dejará ni los abandonará.",
+        referencia: "Deuteronomio 31:6"
+    },
+    {
+        texto: "No prevalecerá ninguna arma que se forje contra ti; toda lengua que te acuse será refutada. Esta es la herencia de los siervos del Señor, la justicia que de mí procede —afirma el Señor—.",
+        referencia: "Isaías 54:17"
+    },
+    {
+        texto: "Así que podemos decir con toda confianza: «El Señor es quien me ayuda; no temeré. ¿Qué me puede hacer un simple mortal?»",
+        referencia: "Hebreos 13:6"
+    },
+    {
+        texto: "Tú me cubres con el escudo de tu salvación, y con tu diestra me sostienes; tu bondad me ha hecho prosperar. Me has despejado el camino, así que mis tobillos no flaquean.",
+        referencia: "Salmo 18:35-36"
+    },
+    {
+        texto: "Cuídame, oh Dios, porque en ti busco refugio.",
+        referencia: "Salmo 16:1"
+    },
+    {
+        texto: "Ustedes quédense quietos, que el Señor presentará batalla por ustedes.",
+        referencia: "Éxodo 14:14"
+    },
+    {
+        texto: "El Señor está conmigo, y no tengo miedo; ¿qué me puede hacer un simple mortal?",
+        referencia: "Salmo 118:6"
+    },
+    {
+        texto: "Tú eres mi escondite y mi escudo; en tu palabra he puesto mi esperanza.",
+        referencia: "Salmo 119:114"
+    },
+    {
+        texto: "Todo lo puedo en Cristo que me fortalece.",
+        referencia: "Filipenses 4:13"
+    },
+    {
+        texto: "Aun en la vejez, cuando ya peinen canas, yo seré el mismo, yo los sostendré. Yo los hice, y cuidaré de ustedes; los sostendré y los libraré.",
+        referencia: "Isaías 46:4"
+    },
+    {
+        texto: "El camino de Dios es perfecto; la palabra del Señor es intachable. Escudo es Dios a los que en él se refugian.",
+        referencia: "Salmo 18:30"
+    },
+     {
+        texto: "Pues te cubrirá con sus plumas y bajo sus alas hallarás refugio. ¡Su verdad será tu escudo y tu baluarte!",
+        referencia: "Salmo 91:4"
+    },
+    {
+        texto: "Pero yo le cantaré a tu poder, y por la mañana alabaré tu amor; porque tú eres mi protector, mi refugio en momentos de angustia.",
+        referencia: "Salmo 59:16"
+    },
+    {
+        texto: "Por sobre todas las cosas cuida tu corazón, porque de él mana la vida.",
+        referencia: "Proverbios 4:23"
+    },
+    {
+        texto: "¿Qué diremos frente a esto? Si Dios está de nuestra parte, ¿quién puede estar en contra nuestra?",
+        referencia: "Romanos 8:31"
+    },
+    {
+        texto: "Pero tú, Señor, me rodeas cual escudo; tú eres mi gloria; ¡tú mantienes en alto mi cabeza!",
+        referencia: "Salmo 3:3"
+    },
+    {
+        texto: "¿Crees que no puedo acudir a mi Padre, y al instante pondría a mi disposición más de doce batallones de ángeles?",
+        referencia: "Mateo 26:53"
+    },
+    {
+        texto: "Siempre tengo presente al Señor; con él a mi derecha, nada me hará caer.",
+        referencia: "Salmo 16:8"
+    },
+    {
+        texto: "Es mejor refugiarse en el Señor que confiar en el hombre.",
+        referencia: "Salmo 118:8"
+    },
+    {
+        texto: "Toda palabra de Dios es digna de crédito; Dios protege a los que en él buscan refugio.",
+        referencia: "Proverbios 30:5"
+    },
+    {
+        texto: "Torre inexpugnable es el nombre del Señor; a ella corren los justos y se ponen a salvo.",
+        referencia: "Proverbios 18:10"
+    },
+    {
+        texto: "¿Pues quién es Dios, si no el Señor? ¿Quién es la roca, si no nuestro Dios?",
+        referencia: "2 Samuel 22:32"
+    }
 
+];
+
+        // Script para la configuracion de seleccion aleatoria de versiculos (lenguaje Js)
+ function mostrarVersiculo() {
+    const randomIndex = Math.floor(Math.random() * versiculos.length);
+    const versiculo = versiculos[randomIndex];
+    document.getElementById("versiculo").innerHTML = `<strong>${versiculo.texto}</strong> <br><em>${versiculo.referencia}</em>`;
+}   
+window.onload = mostrarVersiculo;
+
+        // fondos de paisajes Cambiantes (diferente cada ves que se actualice la pagina ) 
+        const fondos = [
+            "imagenes/fondo1.jpeg",
+            "imagenes/fondo4.jpg",
+            "imagenes/fondo5.jpg",
+            "imagenes/fondo6.jpg",
+            "imagenes/fondo7.jpg",
+            "imagenes/fondo8.jpg",
+            "imagenes/fondo9.jpg",
+            "imagenes/fondo10.jpg",
+            "imagenes/fondo12.jpg",
+            "imagenes/fondo13.jpg",
+            "imagenes/fondo14.jpg",
+            "imagenes/fondo16.jpg",
+            "imagenes/fondo17.jpg",
+            "imagenes/fondo19.jpg",
+            "imagenes/fondo20.jpg",
+            "imagenes/fondo21.jpg",
+            "imagenes/fondo22.jpg",
+            "imagenes/fondo23.jpg",
+            "imagenes/fondo24.jpg",
+            "imagenes/fondo25.jpg",
+            "imagenes/fondo26.jpg",
+            "imagenes/fondo27.jpg",
+            "imagenes/fondo28.jpg",
+            "imagenes/fondo29.jpg",
+            "imagenes/fondo31.jpg",
+            "imagenes/fondo32.jpg",
+            "imagenes/fondo33.jpg",
+            "imagenes/fondo34.jpg",
+            "imagenes/fondo35.jpg",
+            "imagenes/fondo36.jpg",
+            "imagenes/fondo38.jpg",
+            "imagenes/fondo39.jpg",
+            "imagenes/fondo40.jpg",
+            "imagenes/fondo41.jpg",
+            "imagenes/fondo42.jpg",
+            "imagenes/fondo43.jpg",
+            "imagenes/fondo44.jpg",
+            "imagenes/fondo45.jpg",
+            "imagenes/fondo46.WEBP",
+            "imagenes/fondo47.jpeg",
+            "imagenes/fondo48.jpeg",
+            "imagenes/fondo49.jpeg",
+            "imagenes/fondo50.jpeg"
+           
+        ];
+            // Script JS de funcionalidad y cambio de fondos...
+        document.body.style.backgroundImage = `url(${fondos[Math.floor(Math.random() * fondos.length)]})`;
+        document.getElementById("versiculo").innerText = versiculos[Math.floor(Math.random() * versiculos.length)];
+    </script>
 </body>
 </html>
 
