@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meditación Bíblica</title>
 
-        <!--Estilos de contenedor y texto-->
+    <!-- Estilos de contenedor y texto -->
     <style>
         body {
             font-family: 'Playfair Display', serif;
@@ -25,33 +25,33 @@
             margin: 0;
         }
 
- .contenedor {
-    background: rgba(255, 255, 255, 0.32); 
-    padding: 20px;
-    border-radius: 15px;
-    width: 300px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
+        .contenedor {
+            background: rgba(255, 255, 255, 0.32); 
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
         #versiculo {
-            font-size: 17px;
-            font-weight: bold;
             font-size: 20px;
             font-weight: 900;
+            text-align: center;
         }
-            </style>
-        </head>
-    <body>
-     <!--Contenedor-->
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor -->
     <div class="contenedor">
-        <div id="versiculo">Cargando...espera</div>
+        <div id="versiculo"></div>
     </div>
 
-<!--Listado ver Versiculos Cambiantes (1 diferente cada ves que se actualice la pagina)-->
+    <!-- Script para mostrar versículos aleatorios y cambiar el fondo -->
     <script>
  const versiculos = [
     {
@@ -1541,13 +1541,7 @@
 
 ];
 
-        // Script para la configuracion de seleccion aleatoria de versiculos (lenguaje Js)
- function mostrarVersiculo() {
-    const randomIndex = Math.floor(Math.random() * versiculos.length);
-    const versiculo = versiculos[randomIndex];
-    document.getElementById("versiculo").innerHTML = `<strong>${versiculo.texto}</strong> <br><em>${versiculo.referencia}</em>`;
-}   
-window.onload = mostrarVersiculo;
+   
 
         // fondos de paisajes Cambiantes (diferente cada ves que se actualice la pagina ) 
         const fondos = [
@@ -1596,13 +1590,28 @@ window.onload = mostrarVersiculo;
             "imagenes/fondo50.jpeg"
            
         ];
-            // Script JS de funcionalidad y cambio de fondos...
-        document.body.style.backgroundImage = `url(${fondos[Math.floor(Math.random() * fondos.length)]})`;
-        document.getElementById("versiculo").innerText = versiculos[Math.floor(Math.random() * versiculos.length)];
+         // Función para mostrar un versículo aleatorio
+        function mostrarVersiculo() {
+            const randomIndex = Math.floor(Math.random() * versiculos.length);
+            const versiculoAleatorio = versiculos[randomIndex];
+
+            document.getElementById("versiculo").innerHTML = `<strong>${versiculoAleatorio.texto}</strong> <br><em>${versiculoAleatorio.referencia}</em>`;
+        }
+
+        // Función para cambiar el fondo aleatoriamente
+        function cambiarFondo() {
+            const randomFondo = fondos[Math.floor(Math.random() * fondos.length)];
+            document.body.style.backgroundImage = `url(${randomFondo})`;
+        }
+
+        // Ejecutar funciones al cargar la página
+        window.onload = function () {
+            mostrarVersiculo();
+            cambiarFondo();
+        };
     </script>
 </body>
 </html>
-
 <!--Proyecto Versiculo Biblico-->
 <!--Created By Morron Corp-->
 <!--Admin By Kraken Studios-->
